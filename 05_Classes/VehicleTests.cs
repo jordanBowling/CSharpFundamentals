@@ -23,5 +23,55 @@ namespace _05_Classes
            
 
         }
+
+        [TestMethod]
+        public void MethodsTests()
+        {
+            Vehicle transport = new Vehicle();
+            transport.TurnOn();
+            Assert.IsTrue(transport.IsRunning);
+            transport.TurnOff();
+
+            
+
+
+        }
+
+        [TestMethod]
+        public void TurnSignalTest()
+        {
+
+            Vehicle myCar = new Vehicle();
+            myCar.TurnOn();
+            myCar.LeftIndicator = new Indicator();
+            myCar.RightIndicator = new Indicator();
+
+            myCar.TurnRight();
+            Console.WriteLine("Turning right now!");
+
+            Console.WriteLine($"Right Indicator: {myCar.RightIndicator.IsFlashing}");
+            Console.WriteLine($"Left Indicator: {myCar.LeftIndicator.IsFlashing}");
+
+        }
+
+        public void CheckIndicators(Vehicle myCar)
+        {
+            Console.WriteLine($"Right Indicator: {myCar.RightIndicator.IsFlashing}");
+            Console.WriteLine($"Left Indicator: {myCar.RightIndicator.IsFlashing}");
+        }
+
+        [TestMethod]
+        public void Constructors()
+        {
+            // old way ewww
+            Vehicle car = new Vehicle();
+            car.Make = "Toyota";
+            car.Model = "Corolla";
+            car.Mileage = 2119021;
+
+            Vehicle rocket = new Vehicle("SpaceX", "Falcon Heavy", 300000, VehicleType.Spaceship);
+            Console.WriteLine(rocket.Make);
+            Console.WriteLine(rocket.Model);
+        }
     }
 }
